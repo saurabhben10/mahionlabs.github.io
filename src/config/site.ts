@@ -1,22 +1,35 @@
 import type { SiteConfig } from '../types';
 
 /**
+ * Helper to ensure internal paths respect Astro's base URL
+ * (e.g. /mahionlabs.github.io/ on GitHub Pages vs / on custom domain)
+ */
+export function formatUrl(path: string): string {
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('mailto:') || path.startsWith('#')) {
+    return path;
+  }
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  if (cleanPath === '/') {
+    return base ? `${base}/` : '/';
+  }
+  return `${base}${cleanPath}`;
+}
+
+/**
  * Central configuration for Mahion Labs website.
  * All repeated studio strings, metadata, URLs, and apps are defined here.
- * 
- * To switch to a custom domain (e.g., https://mahionlabs.com),
- * update the `siteUrl` property below and adjust DNS/CNAME settings.
  */
 export const siteConfig: SiteConfig = {
   name: 'Mahion Labs',
   tagline: 'Building useful software for what comes next.',
   description: 'Mahion Labs is an independent software studio creating practical mobile applications, AI-powered tools, productivity software and digital products designed to solve real problems.',
-  siteUrl: 'https://mahionlabs.github.io',
+  siteUrl: 'https://saurabhben10.github.io/mahionlabs.github.io',
   email: 'support@mahionlabs.com',
   developerName: 'Mahion Labs',
   copyrightYear: 2026,
   privacyLastUpdated: 'September 2026',
-  githubUrl: 'https://github.com/mahionlabs/mahionlabs.github.io',
+  githubUrl: 'https://github.com/saurabhben10/mahionlabs.github.io',
   googlePlayDeveloperUrl: 'https://play.google.com/store/apps/developer?id=Mahion+Labs',
   navItems: [
     { label: 'Home', href: '/' },

@@ -11,7 +11,7 @@
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
-import { siteConfig } from '../../config/site';
+import { siteConfig, formatUrl } from '../../config/site';
 ---
 
 <BaseLayout
@@ -187,7 +187,7 @@ import { siteConfig } from '../../config/site';
             {siteConfig.apps.map((app) => (
               <li class="flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
-                <a href={app.privacyPolicyUrl} class="text-brand-300 hover:underline font-medium">
+                <a href={formatUrl(app.privacyPolicyUrl)} class="text-brand-300 hover:underline font-medium">
                   {app.name} Privacy Policy
                 </a>
               </li>

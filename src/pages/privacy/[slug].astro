@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
-import { siteConfig } from '../../config/site';
+import { siteConfig, formatUrl } from '../../config/site';
 import type { AppProduct } from '../../types';
 
 export async function getStaticPaths() {
@@ -26,9 +26,9 @@ const { app } = Astro.props;
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs text-slate-400 mb-8" aria-label="Breadcrumb">
-      <a href="/" class="hover:text-white transition-colors">Home</a>
+      <a href={formatUrl('/')} class="hover:text-white transition-colors">Home</a>
       <span>/</span>
-      <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+      <a href={formatUrl('/privacy')} class="hover:text-white transition-colors">Privacy</a>
       <span>/</span>
       <span class="text-slate-200 font-medium">{app.name}</span>
     </nav>
@@ -52,7 +52,7 @@ const { app } = Astro.props;
       <section class="space-y-3">
         <h2 class="text-lg font-bold text-white">1. Scope & Application</h2>
         <p>
-          This policy applies specifically to the mobile application <strong>{app.name}</strong> created and published by <strong>{siteConfig.developerName}</strong>. This document supplements our <a href="/privacy" class="text-brand-400 hover:underline">General Privacy Policy</a>.
+          This policy applies specifically to the mobile application <strong>{app.name}</strong> created and published by <strong>{siteConfig.developerName}</strong>. This document supplements our <a href={formatUrl('/privacy')} class="text-brand-400 hover:underline">General Privacy Policy</a>.
         </p>
       </section>
 
@@ -85,13 +85,13 @@ const { app } = Astro.props;
       </section>
 
       <div class="pt-6 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-400">
-        <a href="/privacy" class="hover:text-white transition-colors flex items-center gap-1">
+        <a href={formatUrl('/privacy')} class="hover:text-white transition-colors flex items-center gap-1">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
           <span>Back to General Privacy Policy</span>
         </a>
-        <a href={`/apps/${app.slug}`} class="text-brand-300 hover:underline">
+        <a href={formatUrl(`/apps/${app.slug}`)} class="text-brand-300 hover:underline">
           View {app.name} Overview
         </a>
       </div>

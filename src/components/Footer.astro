@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { siteConfig } from '../config/site';
+import { siteConfig, formatUrl } from '../config/site';
 
 const currentYear = siteConfig.copyrightYear || new Date().getFullYear();
 ---
@@ -10,7 +10,7 @@ const currentYear = siteConfig.copyrightYear || new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
       <!-- Studio Identity Column -->
       <div class="md:col-span-6 space-y-4">
-        <a href="/" class="inline-block" aria-label="Mahion Labs Home">
+        <a href={formatUrl('/')} class="inline-block" aria-label="Mahion Labs Home">
           <Logo size="md" />
         </a>
         <p class="text-sm text-slate-400 max-w-md leading-relaxed">
@@ -32,19 +32,19 @@ const currentYear = siteConfig.copyrightYear || new Date().getFullYear();
         <h2 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Navigation</h2>
         <ul class="space-y-2 text-sm">
           <li>
-            <a href="/" class="text-slate-400 hover:text-white transition-colors">Home</a>
+            <a href={formatUrl('/')} class="text-slate-400 hover:text-white transition-colors">Home</a>
           </li>
           <li>
-            <a href="/apps" class="text-slate-400 hover:text-white transition-colors">Apps & Products</a>
+            <a href={formatUrl('/apps')} class="text-slate-400 hover:text-white transition-colors">Apps & Products</a>
           </li>
           <li>
-            <a href="/about" class="text-slate-400 hover:text-white transition-colors">About the Studio</a>
+            <a href={formatUrl('/about')} class="text-slate-400 hover:text-white transition-colors">About the Studio</a>
           </li>
           <li>
-            <a href="/support" class="text-slate-400 hover:text-white transition-colors">Product Support</a>
+            <a href={formatUrl('/support')} class="text-slate-400 hover:text-white transition-colors">Product Support</a>
           </li>
           <li>
-            <a href="/privacy" class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+            <a href={formatUrl('/privacy')} class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
           </li>
         </ul>
       </div>
@@ -70,7 +70,7 @@ const currentYear = siteConfig.copyrightYear || new Date().getFullYear();
             </a>
           </li>
           <li>
-            <a href="/privacy" class="text-slate-400 hover:text-white transition-colors">
+            <a href={formatUrl('/privacy')} class="text-slate-400 hover:text-white transition-colors">
               Privacy Disclosures
             </a>
           </li>
@@ -86,9 +86,9 @@ const currentYear = siteConfig.copyrightYear || new Date().getFullYear();
       <p class="flex items-center gap-3">
         <span>Designed for thoughtful utility</span>
         <span class="text-slate-700">•</span>
-        <a href="/privacy" class="hover:text-slate-400 transition-colors">Privacy</a>
+        <a href={formatUrl('/privacy')} class="hover:text-slate-400 transition-colors">Privacy</a>
         <span class="text-slate-700">•</span>
-        <a href="/support" class="hover:text-slate-400 transition-colors">Support</a>
+        <a href={formatUrl('/support')} class="hover:text-slate-400 transition-colors">Support</a>
       </p>
     </div>
   </div>

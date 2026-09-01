@@ -1,5 +1,5 @@
 ---
-import { siteConfig } from '../config/site';
+import { siteConfig, formatUrl } from '../config/site';
 
 interface Props {
   title?: string;
@@ -46,9 +46,9 @@ const schemaOrgJSONLD = {
 <meta name="generator" content={Astro.generator} />
 
 <!-- Favicon & Manifest -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="manifest" href="/site.webmanifest" />
+<link rel="icon" type="image/svg+xml" href={formatUrl('/favicon.svg')} />
+<link rel="alternate icon" type="image/x-icon" href={formatUrl('/favicon.ico')} />
+<link rel="manifest" href={formatUrl('/site.webmanifest')} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />

@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SectionHeader from '../../components/SectionHeader.astro';
 import AppCard from '../../components/AppCard.astro';
-import { siteConfig } from '../../config/site';
+import { siteConfig, formatUrl } from '../../config/site';
 ---
 
 <BaseLayout
@@ -56,7 +56,7 @@ import { siteConfig } from '../../config/site';
         Mahion Labs operates as an independent software studio. As new productivity utilities, AI tools, and mobile applications pass internal quality and privacy audits, they are published directly to Google Play and listed on this page.
       </p>
       <div class="pt-2">
-        <a href="/support" class="text-xs font-medium text-brand-300 hover:text-brand-200 transition-colors inline-flex items-center gap-1.5">
+        <a href={formatUrl('/support')} class="text-xs font-medium text-brand-300 hover:text-brand-200 transition-colors inline-flex items-center gap-1.5">
           <span>Inquire about beta testing or partnerships</span>
           <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
