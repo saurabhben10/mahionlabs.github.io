@@ -31,7 +31,7 @@ This website serves as:
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/mahionlabs/mahionlabs.github.io.git
+git clone https://github.com/saurabhben10/mahionlabs.github.io.git
 cd mahionlabs.github.io
 
 # Install dependencies
@@ -118,7 +118,7 @@ Open `src/config/site.ts` and edit the `email` field:
 ```typescript
 export const siteConfig: SiteConfig = {
   name: 'Mahion Labs',
-  email: 'support@mahionlabs.com', // <-- Update email here
+  email: 'saurabh.shrma@outlook.com', // <-- Update email here
   // ...
 };
 ```
@@ -182,13 +182,13 @@ This repository includes `.github/workflows/deploy.yml`.
 1. Push this repository to GitHub under the repository name `mahionlabs.github.io` (or your chosen repository name).
 2. Go to **Settings** > **Pages** in your GitHub repository.
 3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
-4. Every push to the `main` branch will automatically build and deploy the website to `https://mahionlabs.github.io`.
+4. Every push to the `main` branch will automatically build and deploy the website.
 
 ---
 
 ## Connecting a Custom Domain (`mahionlabs.com`)
 
-When you are ready to switch from `https://mahionlabs.github.io` to `https://mahionlabs.com`:
+When you are ready to switch from `https://saurabhben10.github.io/mahionlabs.github.io` to `https://mahionlabs.com`:
 
 ### 1. Update Central Config
 In `src/config/site.ts`:
@@ -196,9 +196,7 @@ In `src/config/site.ts`:
 siteUrl: 'https://mahionlabs.com',
 ```
 In `astro.config.mjs`:
-```javascript
-site: 'https://mahionlabs.com',
-```
+Set `isCustomDomain = true` or `CUSTOM_DOMAIN=true`.
 
 ### 2. Configure DNS Records (at your domain registrar)
 Add the following DNS records:
@@ -208,7 +206,7 @@ Add the following DNS records:
   - `A` Record: `185.199.110.153`
   - `A` Record: `185.199.111.153`
 - **Subdomain (`www.mahionlabs.com`)**:
-  - `CNAME` Record: `mahionlabs.github.io.`
+  - `CNAME` Record: `saurabhben10.github.io.`
 
 ### 3. Set Custom Domain in GitHub Pages
 - Go to repository **Settings** > **Pages**.
@@ -220,10 +218,10 @@ Add the following DNS records:
 ## Google Play Console Guidelines
 
 When submitting this site to your Google Play developer profile:
-- **Developer Website URL**: `https://mahionlabs.github.io` (or `https://mahionlabs.com`)
-- **Developer Email**: `support@mahionlabs.com`
-- **Privacy Policy URL**: `https://mahionlabs.github.io/privacy`
-- **App Specific Policy (e.g. ShiftWise)**: `https://mahionlabs.github.io/privacy/shiftwise`
+- **Developer Website URL**: `https://saurabhben10.github.io/mahionlabs.github.io` (or `https://mahionlabs.com`)
+- **Developer Email**: `saurabh.shrma@outlook.com`
+- **Privacy Policy URL**: `https://saurabhben10.github.io/mahionlabs.github.io/privacy`
+- **App Specific Policy (e.g. Nightjar)**: `https://saurabhben10.github.io/mahionlabs.github.io/privacy/nightjar`
 
 ---
 

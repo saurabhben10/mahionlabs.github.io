@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
   tagline: 'Building useful software for what comes next.',
   description: 'Mahion Labs is an independent software studio creating practical mobile applications, AI-powered tools, productivity software and digital products designed to solve real problems.',
   siteUrl: 'https://saurabhben10.github.io/mahionlabs.github.io',
-  email: 'support@mahionlabs.com',
+  email: 'saurabh.shrma@outlook.com',
   developerName: 'Mahion Labs',
   copyrightYear: 2026,
   privacyLastUpdated: 'September 2026',
@@ -40,15 +40,15 @@ export const siteConfig: SiteConfig = {
   ],
   apps: [
     {
-      id: 'shiftwise',
-      slug: 'shiftwise',
-      name: 'ShiftWise',
+      id: 'nightjar',
+      slug: 'nightjar',
+      name: 'Nightjar',
       tagline: 'Intelligent schedule optimization and shift management for modern teams.',
       category: 'Productivity & Utilities',
       description: 'An intuitive, AI-assisted shift management tool designed to simplify complex work schedules, prevent burnout, and streamline shift coordination with effortless precision.',
       detailedDescription: [
-        'ShiftWise is designed to remove the friction from dynamic shift planning and rota management.',
-        'With intelligent conflict detection, automated break planning, and zero-clutter mobile interfaces, ShiftWise ensures working professionals and teams spend less time scheduling and more time getting things done.'
+        'Nightjar is designed to remove the friction from dynamic shift planning and rota management.',
+        'With intelligent conflict detection, automated break planning, and zero-clutter mobile interfaces, Nightjar ensures working professionals and teams spend less time scheduling and more time getting things done.'
       ],
       features: [
         'Intelligent shift pattern detection & conflict avoidance',
@@ -57,8 +57,8 @@ export const siteConfig: SiteConfig = {
         'Privacy-respecting local storage with zero unnecessary tracking'
       ],
       status: 'coming-soon',
-      privacyPolicyUrl: '/privacy/shiftwise',
-      supportUrl: '/support?app=shiftwise',
+      privacyPolicyUrl: '/privacy/nightjar',
+      supportUrl: '/support?app=nightjar',
       version: '1.0.0-preview',
       tags: ['Android', 'Productivity', 'AI Tools', 'Offline-First']
     }
