@@ -25,12 +25,12 @@ const { app } = Astro.props;
   <div class="py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-8" aria-label="Breadcrumb">
+    <nav class="flex items-center gap-2 text-xs text-zinc-400 mb-8 font-mono" aria-label="Breadcrumb">
       <a href={formatUrl('/')} class="hover:text-white transition-colors">Home</a>
       <span>/</span>
       <a href={formatUrl('/privacy')} class="hover:text-white transition-colors">Privacy</a>
       <span>/</span>
-      <span class="text-slate-200 font-medium">{app.name}</span>
+      <span class="text-zinc-200 font-medium">{app.name}</span>
     </nav>
 
     <!-- Header -->
@@ -40,58 +40,58 @@ const { app } = Astro.props;
       description={`Specific data collection and security practices for ${app.name}.`}
     />
 
-    <div class="mt-6 text-center text-xs text-slate-400 font-mono">
+    <div class="mt-6 text-center text-xs text-zinc-400 font-mono">
       <span>Last updated: {siteConfig.privacyLastUpdated}</span>
       <span class="mx-2">•</span>
       <span>Developer: {siteConfig.developerName}</span>
     </div>
 
     <!-- Main Content -->
-    <div class="mt-12 glass-panel rounded-3xl p-8 sm:p-12 border border-white/[0.08] space-y-8 text-slate-300 leading-relaxed text-sm sm:text-base">
+    <div class="mt-12 glass-panel rounded-3xl p-8 sm:p-12 border border-white/[0.08] space-y-8 text-zinc-300 leading-relaxed text-sm sm:text-base font-normal">
       
       <section class="space-y-3">
-        <h2 class="text-lg font-bold text-white">1. Scope & Application</h2>
+        <h2 class="text-lg font-bold text-white">01. Scope & Application</h2>
         <p>
-          This policy applies specifically to the mobile application <strong>{app.name}</strong> created and published by <strong>{siteConfig.developerName}</strong>. This document supplements our <a href={formatUrl('/privacy')} class="text-brand-400 hover:underline">General Privacy Policy</a>.
+          This policy applies specifically to the mobile application <strong>{app.name}</strong> created and published by <strong>{siteConfig.developerName}</strong>. This document supplements our <a href={formatUrl('/privacy')} class="text-white hover:underline">General Privacy Policy</a>.
         </p>
       </section>
 
       <section class="space-y-3 pt-6 border-t border-white/[0.06]">
-        <h2 class="text-lg font-bold text-white">2. Data Storage & Offline-First Design</h2>
+        <h2 class="text-lg font-bold text-white">02. Data Storage & Offline-First Design</h2>
         <p>
           {app.name} is engineered using an offline-first architecture. All user configurations, schedules, notes, and preferences entered into {app.name} remain on your local device storage. We do not transmit or store your personal operational data on remote servers without explicit user consent.
         </p>
       </section>
 
       <section class="space-y-3 pt-6 border-t border-white/[0.06]">
-        <h2 class="text-lg font-bold text-white">3. Device Permissions</h2>
+        <h2 class="text-lg font-bold text-white">03. Device Permissions</h2>
         <p>
           {app.name} requests only the standard Android operating system permissions necessary to deliver its core productivity features (such as local notifications for schedule reminders or local storage access for export). No sensitive permissions (such as contacts, microphone, or precise background GPS) are requested unless explicitly required and disclosed.
         </p>
       </section>
 
       <section class="space-y-3 pt-6 border-t border-white/[0.06]">
-        <h2 class="text-lg font-bold text-white">4. Telemetry & Crash Reporting</h2>
+        <h2 class="text-lg font-bold text-white">04. Telemetry & Crash Reporting</h2>
         <p>
           In the event of an unexpected crash, anonymous crash stack traces may be processed via standard Google Play Console developer reporting to help us identify and resolve bugs. No personal identifying information or schedule data is included in these diagnostic dumps.
         </p>
       </section>
 
       <section class="space-y-3 pt-6 border-t border-white/[0.06]">
-        <h2 class="text-lg font-bold text-white">5. Support & Inquiries</h2>
+        <h2 class="text-lg font-bold text-white">05. Support & Inquiries</h2>
         <p>
-          For specific questions regarding {app.name} or data handling, contact us directly at <a href={`mailto:${siteConfig.email}`} class="text-brand-400 hover:underline">{siteConfig.email}</a>.
+          For specific questions regarding {app.name} or data handling, contact us directly at <a href={`mailto:${siteConfig.email}`} class="text-white hover:underline">{siteConfig.email}</a>.
         </p>
       </section>
 
-      <div class="pt-6 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-400">
+      <div class="pt-6 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-400 font-mono">
         <a href={formatUrl('/privacy')} class="hover:text-white transition-colors flex items-center gap-1">
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
           </svg>
           <span>Back to General Privacy Policy</span>
         </a>
-        <a href={formatUrl(`/apps/${app.slug}`)} class="text-brand-300 hover:underline">
+        <a href={formatUrl(`/apps/${app.slug}`)} class="text-zinc-200 hover:text-white hover:underline">
           View {app.name} Overview
         </a>
       </div>

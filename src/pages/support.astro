@@ -39,12 +39,9 @@ const faqs = [
     />
 
     <!-- Product Support Main Card -->
-    <div class="mt-14 glass-panel rounded-3xl p-8 sm:p-12 border border-brand-500/25 relative overflow-hidden">
-      <!-- Ambient Glow -->
-      <div class="absolute -top-24 right-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
+    <div class="mt-14 glass-panel rounded-3xl p-8 sm:p-12 border border-white/[0.08] relative overflow-hidden">
       <div class="max-w-3xl space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider text-brand-300 bg-brand-500/15 border border-brand-500/30">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase text-zinc-300 bg-white/[0.04] border border-white/[0.08]">
           <span>Product Support</span>
         </div>
 
@@ -52,24 +49,24 @@ const faqs = [
           Direct Developer Support
         </h2>
 
-        <p class="text-base text-slate-300 leading-relaxed">
+        <p class="text-base text-zinc-300 leading-relaxed font-normal">
           If you’re experiencing an issue with one of our applications, please include the app name, device information and a brief description of the issue when contacting us.
         </p>
 
         <!-- Guidelines Checklist -->
-        <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] space-y-3">
-          <h3 class="text-xs font-bold text-slate-200 uppercase tracking-wider">Helpful details to include:</h3>
-          <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-400">
+        <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-3">
+          <h3 class="text-xs font-mono font-medium text-zinc-300 uppercase tracking-wider">Helpful details to include:</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-zinc-400 font-normal">
             <li class="flex items-center gap-2 p-2.5 rounded-lg bg-dark-900/60 border border-white/[0.04]">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
               <span>1. Application Name & Version</span>
             </li>
             <li class="flex items-center gap-2 p-2.5 rounded-lg bg-dark-900/60 border border-white/[0.04]">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
               <span>2. Device Model & OS Version</span>
             </li>
             <li class="flex items-center gap-2 p-2.5 rounded-lg bg-dark-900/60 border border-white/[0.04]">
-              <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+              <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
               <span>3. Description or Screenshots</span>
             </li>
           </ul>
@@ -78,11 +75,11 @@ const faqs = [
         <!-- Contact Actions Box -->
         <div class="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 rounded-2xl bg-dark-900/90 border border-white/[0.08]">
           <div class="space-y-1">
-            <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Official Contact Email</div>
-            <a href={`mailto:${siteConfig.email}`} class="text-lg sm:text-xl font-bold text-brand-300 hover:text-brand-200 hover:underline">
+            <div class="text-xs text-zinc-500 uppercase tracking-wider font-mono">Official Contact Email</div>
+            <a href={`mailto:${siteConfig.email}`} class="text-lg sm:text-xl font-bold text-white hover:text-zinc-300 hover:underline">
               {siteConfig.email}
             </a>
-            <div class="text-xs text-slate-400">Developer: <span class="text-slate-200 font-medium">{siteConfig.developerName}</span></div>
+            <div class="text-xs text-zinc-400 font-mono">Developer: <span class="text-zinc-200 font-medium">{siteConfig.developerName}</span></div>
           </div>
 
           <div class="flex items-center gap-3 w-full sm:w-auto">
@@ -108,10 +105,10 @@ const faqs = [
         {faqs.map((faq, idx) => (
           <div class="glass-card rounded-2xl p-6 border border-white/[0.06] space-y-2">
             <h3 class="text-base font-semibold text-white flex items-start gap-3">
-              <span class="text-brand-400 font-mono text-sm">Q{idx + 1}.</span>
+              <span class="text-zinc-500 font-mono text-sm">0{idx + 1}.</span>
               <span>{faq.q}</span>
             </h3>
-            <p class="text-sm text-slate-400 pl-8 leading-relaxed">
+            <p class="text-sm text-zinc-400 pl-8 leading-relaxed font-normal">
               {faq.a}
             </p>
           </div>
