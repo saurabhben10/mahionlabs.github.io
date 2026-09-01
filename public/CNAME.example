@@ -1,0 +1,5 @@
+# To configure a custom domain (e.g., mahionlabs.com):
+# 1. Rename this file to CNAME (without .example) or set the Custom Domain in GitHub Pages repo settings.
+# 2. Put your domain name on the first line (e.g., mahionlabs.com).
+# 3. Update `siteUrl` in `src/config/site.ts` and `astro.config.mjs` to https://mahionlabs.com
+mahionlabs.com

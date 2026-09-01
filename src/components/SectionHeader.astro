@@ -1,0 +1,38 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+  className?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  align = 'center',
+  className = ''
+} = Astro.props;
+
+const alignmentClasses = align === 'center' ? 'text-center mx-auto items-center' : 'text-left items-start';
+---
+
+<div class={`flex flex-col max-w-3xl ${alignmentClasses} ${className}`}>
+  {eyebrow && (
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase text-brand-300 bg-brand-500/10 border border-brand-500/20 mb-3">
+      <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+      <span>{eyebrow}</span>
+    </div>
+  )}
+  
+  <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white">
+    {title}
+  </h2>
+  
+  {description && (
+    <p class="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl">
+      {description}
+    </p>
+  )}
+</div>

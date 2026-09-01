@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout
+  title="Page Not Found — Mahion Labs"
+  description="The requested page could not be found."
+  noindex={true}
+>
+  <div class="py-24 md:py-36 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+    <div class="w-16 h-16 rounded-2xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-300 mb-6">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+      </svg>
+    </div>
+
+    <div class="text-xs font-mono font-semibold text-brand-400 uppercase tracking-widest mb-2">Error 404</div>
+    
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+      Page Not Found
+    </h1>
+
+    <p class="text-base text-slate-400 max-w-md mb-8 leading-relaxed">
+      The resource or route you requested doesn't exist or may have been moved.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <Button href="/" variant="primary" size="md">
+        <span>Return to Homepage</span>
+      </Button>
+      <Button href="/apps" variant="secondary" size="md">
+        <span>View Apps</span>
+      </Button>
+    </div>
+  </div>
+</BaseLayout>

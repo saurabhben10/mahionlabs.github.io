@@ -1,0 +1,104 @@
+---
+import type { AppProduct } from '../types';
+import Button from './Button.astro';
+
+interface Props {
+  app: AppProduct;
+  featured?: boolean;
+}
+
+const { app, featured = false } = Astro.props;
+
+const statusConfig = {
+  'released': { label: 'Available Now', color: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' },
+  'beta': { label: 'Public Beta', color: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30' },
+  'coming-soon': { label: 'Coming Soon', color: 'bg-brand-500/15 text-brand-300 border-brand-500/30' },
+  'in-development': { label: 'In Active Development', color: 'bg-amber-500/15 text-amber-300 border-amber-500/30' },
+};
+
+const currentStatus = statusConfig[app.status] || statusConfig['coming-soon'];
+---
+
+<div class={`glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden transition-all duration-300 border ${
+  featured ? 'border-brand-500/30 bg-dark-800/80' : 'border-white/[0.08]'
+}`}>
+  <div>
+    <!-- Header: App Icon + Status Badge -->
+    <div class="flex items-start justify-between gap-4 mb-5">
+      <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-600/30 to-cyan-500/20 border border-brand-400/30 p-2.5 flex items-center justify-center text-white shadow-inner flex-shrink-0">
+        <!-- Default App Glyph if no custom icon -->
+        <svg class="w-8 h-8 text-brand-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      </div>
+
+      <div class="flex flex-col items-end gap-1.5">
+        <span class={`px-2.5 py-1 rounded-full text-xs font-medium border ${currentStatus.color}`}>
+          {currentStatus.label}
+        </span>
+        {app.category && (
+          <span class="text-[11px] text-slate-400 font-medium tracking-wide">
+            {app.category}
+          </span>
+        )}
+      </div>
+    </div>
+
+    <!-- Title & Description -->
+    <h3 class="text-xl font-bold text-white mb-2 group-hover:text-brand-300 transition-colors">
+      <a href={`/apps/${app.slug}`} class="hover:underline focus-visible:outline-none">
+        {app.name}
+      </a>
+    </h3>
+    
+    <p class="text-sm text-slate-300 mb-4 leading-relaxed line-clamp-3">
+      {app.description}
+    </p>
+
+    <!-- Key Features Snippet -->
+    {app.features && app.features.length > 0 && (
+      <ul class="space-y-1.5 mb-6 text-xs text-slate-400">
+        {app.features.slice(0, 2).map((feature) => (
+          <li class="flex items-start gap-2">
+            <svg class="w-3.5 h-3.5 text-brand-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+
+  <!-- Footer Actions & Links -->
+  <div class="pt-5 border-t border-white/[0.06] flex flex-col gap-3">
+    <div class="flex items-center gap-2">
+      {app.playStoreUrl ? (
+        <Button href={app.playStoreUrl} target="_blank" rel="noopener noreferrer" variant="primary" size="sm" className="w-full">
+          <svg class="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3.609 1.814L13.792 12 3.61 22.186a1.996 1.996 0 01-.61-1.428V3.242c0-.55.225-1.05.609-1.428zm11.606 11.608L5.65 21.056l10.222-5.902-1.657-1.732zM17.307 10.97l2.845 1.643a1.238 1.238 0 010 2.146l-2.845 1.643-2.029-2.028 2.029-2.404zm-2.092-2.092L5.65 2.944l9.565 7.634 1.732-1.7z"/>
+          </svg>
+          Google Play
+        </Button>
+      ) : (
+        <Button href={`/apps/${app.slug}`} variant="secondary" size="sm" className="w-full">
+          <span>View Details</span>
+          <svg class="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </Button>
+      )}
+    </div>
+
+    <!-- Quick Meta Links (Privacy, Support) -->
+    <div class="flex items-center justify-between text-xs text-slate-400 px-1">
+      <a href={app.privacyPolicyUrl} class="hover:text-brand-300 transition-colors">
+        Privacy Policy
+      </a>
+      <span class="text-slate-600">•</span>
+      <a href={app.supportUrl} class="hover:text-brand-300 transition-colors">
+        App Support
+      </a>
+    </div>
+  </div>
+</div>

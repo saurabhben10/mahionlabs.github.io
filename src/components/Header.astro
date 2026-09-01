@@ -1,0 +1,134 @@
+---
+import Logo from './Logo.astro';
+import { siteConfig } from '../config/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+// Normalize path helper for active state
+const isActive = (href: string) => {
+  if (href === '/') {
+    return currentPath === '/' || currentPath === '';
+  }
+  return currentPath.startsWith(href);
+};
+---
+
+<header class="sticky top-0 z-50 w-full glass-panel border-b border-white/[0.08] transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Brand Logo -->
+      <a href="/" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded-lg p-1 transition-transform active:scale-95" aria-label="Mahion Labs Homepage">
+        <Logo size="md" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-1" aria-label="Main Navigation">
+        {siteConfig.navItems.map((item) => {
+          const active = isActive(item.href);
+          return (
+            <a
+              href={item.href}
+              class={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200 relative ${
+                active
+                  ? 'text-white bg-white/[0.08] shadow-sm'
+                  : 'text-slate-300 hover:text-white hover:bg-white/[0.04]'
+              }`}
+              aria-current={active ? 'page' : undefined}
+            >
+              {item.label}
+              {active && (
+                <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-gradient-to-r from-brand-400 to-cyan-400 rounded-full" />
+              )}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Right Action / Status Badge -->
+      <div class="hidden md:flex items-center gap-3">
+        <a 
+          href="/apps"
+          class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-brand-300 bg-brand-500/10 border border-brand-500/20 rounded-full hover:bg-brand-500/20 hover:border-brand-500/40 transition-colors"
+        >
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Studio Active</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex md:hidden">
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          class="inline-flex items-center justify-center p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-brand-400"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Toggle navigation menu"
+        >
+          <svg id="menu-open-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-dark-900/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-1">
+    {siteConfig.navItems.map((item) => {
+      const active = isActive(item.href);
+      return (
+        <a
+          href={item.href}
+          class={`block px-3 py-2.5 rounded-lg text-base font-medium transition-colors ${
+            active
+              ? 'text-white bg-brand-500/15 border-l-2 border-brand-400'
+              : 'text-slate-300 hover:text-white hover:bg-white/[0.05]'
+          }`}
+          aria-current={active ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      );
+    })}
+    <div class="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-slate-400 px-3">
+      <span>Developer: {siteConfig.developerName}</span>
+      <span class="text-brand-300 font-medium">Independent Studio</span>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Accessible, lightweight mobile menu toggle
+  const toggleBtn = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const openIcon = document.getElementById('menu-open-icon');
+  const closeIcon = document.getElementById('menu-close-icon');
+
+  if (toggleBtn && mobileMenu && openIcon && closeIcon) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Close on escape key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>

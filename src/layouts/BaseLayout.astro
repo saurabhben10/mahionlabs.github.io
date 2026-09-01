@@ -1,0 +1,63 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BackgroundEffects from '../components/BackgroundEffects.astro';
+import SEO from '../components/SEO.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  canonicalURL?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image, article, canonicalURL, noindex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      article={article}
+      canonicalURL={canonicalURL}
+      noindex={noindex}
+    />
+
+    <!-- Google Fonts Preconnect & Inter / Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" 
+      rel="stylesheet" 
+    />
+  </head>
+  <body class="bg-dark-950 text-slate-100 flex flex-col min-h-screen relative selection:bg-brand-500/30 selection:text-white">
+    <!-- Accessible Skip Link -->
+    <a 
+      href="#main-content" 
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand-600 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Subtle Dynamic Background Ambience -->
+    <BackgroundEffects />
+
+    <!-- Navigation Header -->
+    <Header />
+
+    <!-- Main Page Content -->
+    <main id="main-content" class="flex-grow relative z-10">
+      <slot />
+    </main>
+
+    <!-- Studio Footer -->
+    <Footer />
+  </body>
+</html>

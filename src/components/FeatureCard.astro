@@ -1,0 +1,56 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  iconName?: string;
+  index?: number;
+}
+
+const { title, description, iconName = 'sparkles', index = 0 } = Astro.props;
+---
+
+<div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
+  <!-- Subtle Gradient Accent Bar on Hover -->
+  <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-500/0 to-transparent group-hover:via-brand-400 transition-all duration-500"></div>
+
+  <div>
+    <!-- Icon Container -->
+    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-300 mb-6 group-hover:scale-105 group-hover:bg-brand-500/20 group-hover:border-brand-500/40 transition-all duration-300">
+      {iconName === 'target' && (
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <circle cx="12" cy="12" r="10" stroke-width="1.75" />
+          <circle cx="12" cy="12" r="6" stroke-width="1.75" />
+          <circle cx="12" cy="12" r="2" stroke-width="1.75" fill="currentColor" />
+        </svg>
+      )}
+      {iconName === 'sparkles' && (
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+      )}
+      {iconName === 'refresh-cw' && (
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      )}
+      {iconName === 'user-check' && (
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      )}
+    </div>
+
+    <!-- Title & Description -->
+    <h3 class="text-lg font-bold text-white mb-2.5 group-hover:text-brand-200 transition-colors">
+      {title}
+    </h3>
+    <p class="text-sm text-slate-400 leading-relaxed">
+      {description}
+    </p>
+  </div>
+
+  <div class="mt-6 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs text-slate-500">
+    <span class="font-mono">0{index + 1}</span>
+    <span class="text-slate-600 group-hover:text-brand-400 transition-colors">Mahion Principle</span>
+  </div>
+</div>

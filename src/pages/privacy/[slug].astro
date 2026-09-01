@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { siteConfig } from '../../config/site';
+import type { AppProduct } from '../../types';
+
+export async function getStaticPaths() {
+  return siteConfig.apps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app },
+  }));
+}
+
+interface Props {
+  app: AppProduct;
+}
+
+const { app } = Astro.props;
+---
+
+<BaseLayout
+  title={`${app.name} — Privacy Policy — Mahion Labs`}
+  description={`Privacy Policy and data practices disclosure for ${app.name}, developed by Mahion Labs.`}
+>
+  <div class="py-16 md:py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs text-slate-400 mb-8" aria-label="Breadcrumb">
+      <a href="/" class="hover:text-white transition-colors">Home</a>
+      <span>/</span>
+      <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+      <span>/</span>
+      <span class="text-slate-200 font-medium">{app.name}</span>
+    </nav>
+
+    <!-- Header -->
+    <SectionHeader
+      eyebrow="App Privacy Addendum"
+      title={`${app.name} Privacy Policy`}
+      description={`Specific data collection and security practices for ${app.name}.`}
+    />
+
+    <div class="mt-6 text-center text-xs text-slate-400 font-mono">
+      <span>Last updated: {siteConfig.privacyLastUpdated}</span>
+      <span class="mx-2">•</span>
+      <span>Developer: {siteConfig.developerName}</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="mt-12 glass-panel rounded-3xl p-8 sm:p-12 border border-white/[0.08] space-y-8 text-slate-300 leading-relaxed text-sm sm:text-base">
+      
+      <section class="space-y-3">
+        <h2 class="text-lg font-bold text-white">1. Scope & Application</h2>
+        <p>
+          This policy applies specifically to the mobile application <strong>{app.name}</strong> created and published by <strong>{siteConfig.developerName}</strong>. This document supplements our <a href="/privacy" class="text-brand-400 hover:underline">General Privacy Policy</a>.
+        </p>
+      </section>
+
+      <section class="space-y-3 pt-6 border-t border-white/[0.06]">
+        <h2 class="text-lg font-bold text-white">2. Data Storage & Offline-First Design</h2>
+        <p>
+          {app.name} is engineered using an offline-first architecture. All user configurations, schedules, notes, and preferences entered into {app.name} remain on your local device storage. We do not transmit or store your personal operational data on remote servers without explicit user consent.
+        </p>
+      </section>
+
+      <section class="space-y-3 pt-6 border-t border-white/[0.06]">
+        <h2 class="text-lg font-bold text-white">3. Device Permissions</h2>
+        <p>
+          {app.name} requests only the standard Android operating system permissions necessary to deliver its core productivity features (such as local notifications for schedule reminders or local storage access for export). No sensitive permissions (such as contacts, microphone, or precise background GPS) are requested unless explicitly required and disclosed.
+        </p>
+      </section>
+
+      <section class="space-y-3 pt-6 border-t border-white/[0.06]">
+        <h2 class="text-lg font-bold text-white">4. Telemetry & Crash Reporting</h2>
+        <p>
+          In the event of an unexpected crash, anonymous crash stack traces may be processed via standard Google Play Console developer reporting to help us identify and resolve bugs. No personal identifying information or schedule data is included in these diagnostic dumps.
+        </p>
+      </section>
+
+      <section class="space-y-3 pt-6 border-t border-white/[0.06]">
+        <h2 class="text-lg font-bold text-white">5. Support & Inquiries</h2>
+        <p>
+          For specific questions regarding {app.name} or data handling, contact us directly at <a href={`mailto:${siteConfig.email}`} class="text-brand-400 hover:underline">{siteConfig.email}</a>.
+        </p>
+      </section>
+
+      <div class="pt-6 border-t border-white/[0.06] flex items-center justify-between text-xs text-slate-400">
+        <a href="/privacy" class="hover:text-white transition-colors flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span>Back to General Privacy Policy</span>
+        </a>
+        <a href={`/apps/${app.slug}`} class="text-brand-300 hover:underline">
+          View {app.name} Overview
+        </a>
+      </div>
+
+    </div>
+  </div>
+</BaseLayout>

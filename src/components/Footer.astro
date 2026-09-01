@@ -1,0 +1,95 @@
+---
+import Logo from './Logo.astro';
+import { siteConfig } from '../config/site';
+
+const currentYear = siteConfig.copyrightYear || new Date().getFullYear();
+---
+
+<footer class="border-t border-white/[0.08] bg-dark-950/80 backdrop-blur-md relative z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+      <!-- Studio Identity Column -->
+      <div class="md:col-span-6 space-y-4">
+        <a href="/" class="inline-block" aria-label="Mahion Labs Home">
+          <Logo size="md" />
+        </a>
+        <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+          {siteConfig.tagline}
+        </p>
+        <p class="text-xs text-slate-500 max-w-md leading-relaxed">
+          Independent software studio developing mobile applications, intelligent utilities, and modern digital tools.
+        </p>
+        <div class="pt-2 flex items-center gap-4 text-xs text-slate-400">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400/80"></span>
+            <span>Google Play Developer: <span class="text-slate-200 font-medium">{siteConfig.developerName}</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="md:col-span-3 space-y-3">
+        <h2 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Navigation</h2>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="/" class="text-slate-400 hover:text-white transition-colors">Home</a>
+          </li>
+          <li>
+            <a href="/apps" class="text-slate-400 hover:text-white transition-colors">Apps & Products</a>
+          </li>
+          <li>
+            <a href="/about" class="text-slate-400 hover:text-white transition-colors">About the Studio</a>
+          </li>
+          <li>
+            <a href="/support" class="text-slate-400 hover:text-white transition-colors">Product Support</a>
+          </li>
+          <li>
+            <a href="/privacy" class="text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact & Legal Links -->
+      <div class="md:col-span-3 space-y-3">
+        <h2 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Connect & Legal</h2>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href={`mailto:${siteConfig.email}`} class="text-slate-400 hover:text-brand-300 transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span>{siteConfig.email}</span>
+            </a>
+          </li>
+          <li>
+            <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+              </svg>
+              <span>GitHub Repository</span>
+            </a>
+          </li>
+          <li>
+            <a href="/privacy" class="text-slate-400 hover:text-white transition-colors">
+              Privacy Disclosures
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <p>
+        &copy; {currentYear} {siteConfig.name}. All rights reserved.
+      </p>
+      <p class="flex items-center gap-3">
+        <span>Designed for thoughtful utility</span>
+        <span class="text-slate-700">•</span>
+        <a href="/privacy" class="hover:text-slate-400 transition-colors">Privacy</a>
+        <span class="text-slate-700">•</span>
+        <a href="/support" class="hover:text-slate-400 transition-colors">Support</a>
+      </p>
+    </div>
+  </div>
+</footer>
