@@ -17,20 +17,20 @@ export function formatUrl(path: string): string {
 }
 
 /**
- * Central configuration for Mahion Labs website.
+ * Central configuration for Flipedy Labs website.
  * All repeated studio strings, metadata, URLs, and apps are defined here.
  */
 export const siteConfig: SiteConfig = {
-  name: 'Mahion Labs',
-  tagline: 'Building useful software for what comes next.',
-  description: 'Mahion Labs is an independent software studio creating practical mobile applications, AI-powered tools, productivity software and digital products designed to solve real problems.',
+  name: 'Flipedy Labs',
+  tagline: 'Thoughtful software crafted for everyday clarity.',
+  description: 'Flipedy Labs is an independent software studio creating practical mobile applications, intelligent utilities, and refined digital products designed to solve real problems.',
   siteUrl: 'https://saurabhben10.github.io/mahionlabs.github.io',
   email: 'saurabh.shrma@outlook.com',
-  developerName: 'Mahion Labs',
+  developerName: 'Flipedy Labs',
   copyrightYear: 2026,
   privacyLastUpdated: 'September 2026',
   githubUrl: 'https://github.com/saurabhben10/mahionlabs.github.io',
-  googlePlayDeveloperUrl: 'https://play.google.com/store/apps/developer?id=Mahion+Labs',
+  googlePlayDeveloperUrl: 'https://play.google.com/store/apps/developer?id=Flipedy+Labs',
   navItems: [
     { label: 'Home', href: '/' },
     { label: 'Apps', href: '/apps' },

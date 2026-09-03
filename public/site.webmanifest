@@ -1,11 +1,11 @@
 {
-  "name": "Mahion Labs",
-  "short_name": "Mahion Labs",
-  "description": "Building useful software for what comes next.",
+  "name": "Flipedy Labs",
+  "short_name": "Flipedy Labs",
+  "description": "Thoughtful software crafted for everyday clarity.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#080B12",
-  "theme_color": "#080B12",
+  "background_color": "#0C0D10",
+  "theme_color": "#0C0D10",
   "icons": [
     {
       "src": "/favicon.svg",
