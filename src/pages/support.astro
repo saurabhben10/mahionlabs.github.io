@@ -39,47 +39,47 @@ const faqs = [
     />
 
     <!-- Product Support Main Card -->
-    <div class="mt-14 glass-panel rounded-3xl p-8 sm:p-12 border border-white/[0.08] relative overflow-hidden">
+    <div class="mt-14 glass-panel rounded-3xl p-8 sm:p-12 border border-black/[0.08] bg-white relative overflow-hidden shadow-subtle">
       <div class="max-w-3xl space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase text-champagne-300 bg-champagne-400/[0.06] border border-champagne-400/20">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase text-gold-700 bg-gold-50 border border-gold-200">
           <span>Product Support</span>
         </div>
 
-        <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        <h2 class="text-2xl sm:text-3xl font-bold text-ink-950 tracking-tight">
           Direct Developer Support
         </h2>
 
-        <p class="text-base text-zinc-300 leading-relaxed font-normal">
+        <p class="text-base text-ink-700 leading-relaxed font-normal">
           If you’re experiencing an issue with one of our applications, please include the app name, device information and a brief description of the issue when contacting us.
         </p>
 
         <!-- Guidelines Checklist -->
-        <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] space-y-3">
-          <h3 class="text-xs font-mono font-medium text-zinc-300 uppercase tracking-wider">Helpful details to include:</h3>
-          <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-zinc-400 font-normal">
-            <li class="flex items-center gap-2 p-2.5 rounded-lg bg-dark-900/60 border border-white/[0.04]">
-              <span class="w-1.5 h-1.5 rounded-full bg-champagne-400"></span>
+        <div class="p-5 rounded-2xl bg-paper-100 border border-black/[0.06] space-y-3">
+          <h3 class="text-xs font-mono font-medium text-ink-800 uppercase tracking-wider">Helpful details to include:</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-ink-600 font-normal">
+            <li class="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-black/[0.05] shadow-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
               <span>1. Application Name & Version</span>
             </li>
-            <li class="flex items-center gap-2 p-2.5 rounded-lg bg-dark-900/60 border border-white/[0.04]">
-              <span class="w-1.5 h-1.5 rounded-full bg-champagne-400"></span>
+            <li class="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-black/[0.05] shadow-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
               <span>2. Device Model & OS Version</span>
             </li>
-            <li class="flex items-center gap-2 p-2.5 rounded-lg bg-dark-900/60 border border-white/[0.04]">
-              <span class="w-1.5 h-1.5 rounded-full bg-champagne-400"></span>
+            <li class="flex items-center gap-2 p-2.5 rounded-lg bg-white border border-black/[0.05] shadow-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span>
               <span>3. Description or Screenshots</span>
             </li>
           </ul>
         </div>
 
         <!-- Contact Actions Box -->
-        <div class="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 rounded-2xl bg-dark-900/90 border border-white/[0.08]">
+        <div class="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-6 rounded-2xl bg-paper-100 border border-black/[0.06]">
           <div class="space-y-1">
-            <div class="text-xs text-zinc-500 uppercase tracking-wider font-mono">Official Contact Email</div>
-            <a href={`mailto:${siteConfig.email}`} class="text-lg sm:text-xl font-bold text-white hover:text-champagne-300 hover:underline">
+            <div class="text-xs text-ink-500 uppercase tracking-wider font-mono">Official Contact Email</div>
+            <a href={`mailto:${siteConfig.email}`} class="text-lg sm:text-xl font-bold text-ink-950 hover:text-gold-600 hover:underline">
               {siteConfig.email}
             </a>
-            <div class="text-xs text-zinc-400 font-mono">Developer: <span class="text-zinc-200 font-medium">{siteConfig.developerName}</span></div>
+            <div class="text-xs text-ink-600 font-mono">Developer: <span class="text-ink-950 font-medium">{siteConfig.developerName}</span></div>
           </div>
 
           <div class="flex items-center gap-3 w-full sm:w-auto">
@@ -97,18 +97,18 @@ const faqs = [
 
     <!-- Frequently Asked Questions -->
     <div class="mt-16 space-y-6">
-      <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight text-center">
+      <h2 class="text-xl sm:text-2xl font-bold text-ink-950 tracking-tight text-center">
         Frequently Asked Questions
       </h2>
 
       <div class="grid grid-cols-1 gap-4 max-w-3xl mx-auto">
         {faqs.map((faq, idx) => (
-          <div class="glass-card rounded-2xl p-6 border border-white/[0.06] space-y-2">
-            <h3 class="text-base font-semibold text-white flex items-start gap-3">
-              <span class="text-champagne-400 font-mono text-sm">0{idx + 1}.</span>
+          <div class="glass-card rounded-2xl p-6 bg-white border border-black/[0.07] space-y-2 shadow-subtle">
+            <h3 class="text-base font-semibold text-ink-950 flex items-start gap-3">
+              <span class="text-gold-500 font-mono text-sm">0{idx + 1}.</span>
               <span>{faq.q}</span>
             </h3>
-            <p class="text-sm text-zinc-400 pl-8 leading-relaxed font-normal">
+            <p class="text-sm text-ink-600 pl-8 leading-relaxed font-normal">
               {faq.a}
             </p>
           </div>

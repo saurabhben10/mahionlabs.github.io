@@ -11,8 +11,8 @@ const { title, description, iconName = 'sparkles', index = 0 } = Astro.props;
 
 <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group">
   <div>
-    <!-- Minimalist Icon Container -->
-    <div class="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-zinc-300 mb-6 group-hover:bg-white/[0.08] group-hover:border-white/[0.18] transition-all duration-200">
+    <!-- Classy Icon Container -->
+    <div class="w-11 h-11 rounded-xl bg-paper-200 border border-black/[0.06] flex items-center justify-center text-ink-900 mb-6 group-hover:bg-gold-50 group-hover:border-gold-300 group-hover:text-gold-600 transition-all duration-200">
       {iconName === 'target' && (
         <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <circle cx="12" cy="12" r="10" stroke-width="1.5" />
@@ -38,16 +38,16 @@ const { title, description, iconName = 'sparkles', index = 0 } = Astro.props;
     </div>
 
     <!-- Title & Description -->
-    <h3 class="text-base font-semibold text-white mb-2 group-hover:text-zinc-100 transition-colors">
+    <h3 class="text-base font-semibold text-ink-950 mb-2 group-hover:text-gold-600 transition-colors">
       {title}
     </h3>
-    <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
+    <p class="text-xs sm:text-sm text-ink-600 leading-relaxed font-normal">
       {description}
     </p>
   </div>
 
-  <div class="mt-6 pt-4 border-t border-white/[0.04] flex items-center justify-between text-xs text-zinc-500 font-mono">
+  <div class="mt-6 pt-4 border-t border-black/[0.06] flex items-center justify-between text-xs text-ink-500 font-mono">
     <span>0{index + 1}</span>
-    <span class="text-zinc-600 group-hover:text-zinc-400 transition-colors">Principle</span>
+    <span class="text-ink-400 group-hover:text-gold-600 transition-colors">Principle</span>
   </div>
 </div>

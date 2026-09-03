@@ -5,44 +5,36 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: {
-          950: '#0C0D10', // Deep Warm Graphite Espresso
-          900: '#121419',
-          850: '#171920',
-          800: '#1E212A',
-          750: '#252934',
-          700: '#2E3340',
-          600: '#3C4252',
-          500: '#525A6E',
+        paper: {
+          50: '#FFFFFF',
+          100: '#FAF9F5', // Base Warm Alabaster
+          200: '#F3F1EB',
+          300: '#E8E5DC',
+          400: '#D5D1C5',
+          500: '#B8B3A4',
         },
-        champagne: {
-          50: '#FAF8F5',
-          100: '#F5EFE6',
-          200: '#EBDDC9',
-          300: '#E1C9A6',
-          400: '#E5C07B', // Primary Champagne Accent
-          500: '#D4AF37',
-          600: '#B89428',
-          700: '#8C701E',
-          800: '#5E4A14',
-          900: '#382B0C',
+        ink: {
+          950: '#121316', // Deep Charcoal Espresso
+          900: '#1A1C21',
+          800: '#282B33',
+          700: '#3D424E',
+          600: '#5A606D',
+          500: '#757C8C',
+          400: '#9DA3AE',
         },
-        brand: {
-          50: '#FAF8F5',
-          100: '#F8F9FA',
-          200: '#E5E7EB',
-          300: '#D1D5DB',
-          400: '#9CA3AF',
-          500: '#6B7280',
-          600: '#4B5563',
-          700: '#374151',
-          800: '#1F2937',
-          900: '#111827',
+        gold: {
+          50: '#FAF7EE',
+          100: '#F3EDD7',
+          200: '#E7D8A8',
+          300: '#D7BF75',
+          400: '#B48B22', // Primary Warm Brass/Gold
+          500: '#9E7719',
+          600: '#7F5E12',
         },
         accent: {
-          emerald: '#10B981',
-          champagne: '#E5C07B',
-          amber: '#F59E0B',
+          emerald: '#059669',
+          gold: '#B48B22',
+          amber: '#D97706',
         }
       },
       fontFamily: {
@@ -65,8 +57,8 @@ export default {
         ]
       },
       boxShadow: {
-        'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.4)',
-        'elevated': '0 10px 30px -4px rgba(0, 0, 0, 0.6)',
+        'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.04)',
+        'elevated': '0 12px 32px -4px rgba(0, 0, 0, 0.08)',
       },
     },
   },

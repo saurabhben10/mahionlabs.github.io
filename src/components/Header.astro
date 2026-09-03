@@ -18,11 +18,11 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="sticky top-0 z-50 w-full glass-panel border-b border-white/[0.08] transition-all duration-300">
+<header class="sticky top-0 z-50 w-full glass-panel border-b border-black/[0.06] transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 md:h-20">
       <!-- Brand Logo -->
-      <a href={formatUrl('/')} class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 rounded-lg p-1 transition-transform active:scale-95" aria-label="Mahion Labs Homepage">
+      <a href={formatUrl('/')} class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 rounded-lg p-1 transition-transform active:scale-95" aria-label="Flipedy Labs Homepage">
         <Logo size="md" />
       </a>
 
@@ -36,14 +36,14 @@ const isActive = (href: string) => {
               href={targetUrl}
               class={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200 relative ${
                 active
-                  ? 'text-white bg-white/[0.08] shadow-sm'
-                  : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
+                  ? 'text-ink-950 bg-black/[0.05] shadow-xs'
+                  : 'text-ink-600 hover:text-ink-950 hover:bg-black/[0.03]'
               }`}
               aria-current={active ? 'page' : undefined}
             >
               {item.label}
               {active && (
-                <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-white rounded-full" />
+                <span class="absolute bottom-0 left-3 right-3 h-[2px] bg-ink-950 rounded-full" />
               )}
             </a>
           );
@@ -54,9 +54,9 @@ const isActive = (href: string) => {
       <div class="hidden md:flex items-center gap-3">
         <a 
           href={formatUrl('/apps')}
-          class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-mono text-zinc-300 bg-white/[0.04] border border-white/[0.08] rounded-full hover:bg-white/[0.08] hover:border-white/[0.15] transition-colors"
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-mono font-medium text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-full hover:bg-emerald-100/70 transition-colors shadow-xs"
         >
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>Studio Active</span>
         </a>
       </div>
@@ -66,7 +66,7 @@ const isActive = (href: string) => {
         <button
           type="button"
           id="mobile-menu-toggle"
-          class="inline-flex items-center justify-center p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-zinc-400"
+          class="inline-flex items-center justify-center p-2 rounded-lg text-ink-600 hover:text-ink-950 hover:bg-black/[0.05] focus:outline-none focus:ring-2 focus:ring-gold-400"
           aria-controls="mobile-menu"
           aria-expanded="false"
           aria-label="Toggle navigation menu"
@@ -83,7 +83,7 @@ const isActive = (href: string) => {
   </div>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-dark-950/98 backdrop-blur-xl px-4 pt-2 pb-6 space-y-1">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-black/[0.06] bg-paper-100/98 backdrop-blur-xl px-4 pt-2 pb-6 space-y-1 shadow-lg">
     {siteConfig.navItems.map((item) => {
       const active = isActive(item.href);
       const targetUrl = formatUrl(item.href);
@@ -92,8 +92,8 @@ const isActive = (href: string) => {
           href={targetUrl}
           class={`block px-3 py-2.5 rounded-lg text-base font-medium transition-colors ${
             active
-              ? 'text-white bg-white/[0.08] border-l-2 border-white'
-              : 'text-zinc-400 hover:text-white hover:bg-white/[0.04]'
+              ? 'text-ink-950 bg-black/[0.06] border-l-2 border-ink-950 font-semibold'
+              : 'text-ink-600 hover:text-ink-950 hover:bg-black/[0.03]'
           }`}
           aria-current={active ? 'page' : undefined}
         >
@@ -101,9 +101,9 @@ const isActive = (href: string) => {
         </a>
       );
     })}
-    <div class="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-zinc-400 px-3 font-mono">
+    <div class="pt-4 border-t border-black/[0.06] flex items-center justify-between text-xs text-ink-500 px-3 font-mono">
       <span>Developer: {siteConfig.developerName}</span>
-      <span class="text-zinc-300 font-medium">Independent Studio</span>
+      <span class="text-ink-800 font-medium">Independent Studio</span>
     </div>
   </div>
 </header>

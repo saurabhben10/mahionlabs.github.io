@@ -18,10 +18,10 @@ interface Props {
 const { app } = Astro.props;
 
 const statusConfig = {
-  'released': { label: 'Available Now', dot: 'bg-emerald-400', badge: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20' },
-  'beta': { label: 'Public Beta', dot: 'bg-cyan-400', badge: 'bg-white/[0.05] text-zinc-200 border-white/[0.1]' },
-  'coming-soon': { label: 'Active Development', dot: 'bg-champagne-400', badge: 'bg-champagne-400/[0.06] text-champagne-300 border-champagne-400/20' },
-  'in-development': { label: 'In Development', dot: 'bg-amber-400', badge: 'bg-amber-500/10 text-amber-300 border-amber-500/20' },
+  'released': { label: 'Available Now', dot: 'bg-emerald-500', badge: 'bg-emerald-50 text-emerald-800 border-emerald-200' },
+  'beta': { label: 'Public Beta', dot: 'bg-cyan-500', badge: 'bg-cyan-50 text-cyan-800 border-cyan-200' },
+  'coming-soon': { label: 'Active Development', dot: 'bg-gold-400', badge: 'bg-gold-50 text-gold-700 border-gold-200' },
+  'in-development': { label: 'In Development', dot: 'bg-amber-500', badge: 'bg-amber-50 text-amber-800 border-amber-200' },
 };
 
 const currentStatus = statusConfig[app.status] || statusConfig['coming-soon'];
@@ -33,32 +33,32 @@ const currentStatus = statusConfig[app.status] || statusConfig['coming-soon'];
 >
   <div class="py-16 md:py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-xs text-zinc-400 mb-8 font-mono" aria-label="Breadcrumb">
-      <a href={formatUrl('/')} class="hover:text-white transition-colors">Home</a>
+    <nav class="flex items-center gap-2 text-xs text-ink-500 mb-8 font-mono" aria-label="Breadcrumb">
+      <a href={formatUrl('/')} class="hover:text-ink-950 transition-colors">Home</a>
       <span>/</span>
-      <a href={formatUrl('/apps')} class="hover:text-white transition-colors">Apps</a>
+      <a href={formatUrl('/apps')} class="hover:text-ink-950 transition-colors">Apps</a>
       <span>/</span>
-      <span class="text-zinc-200 font-medium">{app.name}</span>
+      <span class="text-ink-950 font-medium">{app.name}</span>
     </nav>
 
     <!-- App Hero Header -->
-    <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-white/[0.08] relative overflow-hidden">
-      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-white/[0.08]">
+    <div class="glass-panel rounded-3xl p-8 sm:p-12 border border-black/[0.08] bg-white relative overflow-hidden shadow-subtle">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-black/[0.06]">
         <div class="flex items-center gap-5">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/[0.04] border border-white/[0.1] p-3.5 flex items-center justify-center text-white shadow-sm flex-shrink-0">
-            <svg class="w-10 h-10 text-champagne-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-paper-200 border border-black/[0.06] p-3.5 flex items-center justify-center text-ink-900 shadow-xs flex-shrink-0">
+            <svg class="w-10 h-10 text-gold-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
             </svg>
           </div>
           <div>
             <div class="flex flex-wrap items-center gap-2.5 mb-1.5">
-              <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">{app.name}</h1>
+              <h1 class="text-2xl sm:text-3xl font-bold text-ink-950 tracking-tight">{app.name}</h1>
               <span class={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium border ${currentStatus.badge}`}>
                 <span class={`w-1.5 h-1.5 rounded-full ${currentStatus.dot}`}></span>
                 <span>{currentStatus.label}</span>
               </span>
             </div>
-            <p class="text-xs sm:text-sm text-zinc-400 font-mono">{app.category}</p>
+            <p class="text-xs sm:text-sm text-ink-500 font-mono">{app.category}</p>
           </div>
         </div>
 
@@ -72,8 +72,8 @@ const currentStatus = statusConfig[app.status] || statusConfig['coming-soon'];
               Get on Google Play
             </Button>
           ) : (
-            <div class="px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-zinc-300 flex items-center justify-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-champagne-400 animate-pulse"></span>
+            <div class="px-4 py-2.5 rounded-xl bg-gold-50 border border-gold-200 text-xs font-mono text-gold-800 flex items-center justify-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
               <span>Available Soon on Google Play</span>
             </div>
           )}
@@ -87,12 +87,12 @@ const currentStatus = statusConfig[app.status] || statusConfig['coming-soon'];
       <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2 space-y-6">
           <div>
-            <h2 class="text-base font-semibold text-white mb-3">About {app.name}</h2>
-            <p class="text-sm text-zinc-300 leading-relaxed mb-4 font-normal">
+            <h2 class="text-base font-semibold text-ink-950 mb-3">About {app.name}</h2>
+            <p class="text-sm text-ink-700 leading-relaxed mb-4 font-normal">
               {app.description}
             </p>
             {app.detailedDescription && app.detailedDescription.map((p) => (
-              <p class="text-sm text-zinc-400 leading-relaxed mb-3 font-normal">
+              <p class="text-sm text-ink-600 leading-relaxed mb-3 font-normal">
                 {p}
               </p>
             ))}
@@ -100,14 +100,14 @@ const currentStatus = statusConfig[app.status] || statusConfig['coming-soon'];
 
           {app.features && app.features.length > 0 && (
             <div>
-              <h2 class="text-base font-semibold text-white mb-3">Key Capabilities</h2>
+              <h2 class="text-base font-semibold text-ink-950 mb-3">Key Capabilities</h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {app.features.map((feat) => (
-                  <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-start gap-2.5">
-                    <svg class="w-4 h-4 text-champagne-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <div class="p-3.5 rounded-xl bg-paper-100 border border-black/[0.05] flex items-start gap-2.5">
+                    <svg class="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
-                    <span class="text-xs text-zinc-300 leading-snug font-normal">{feat}</span>
+                    <span class="text-xs text-ink-800 leading-snug font-normal">{feat}</span>
                   </div>
                 ))}
               </div>
@@ -117,35 +117,35 @@ const currentStatus = statusConfig[app.status] || statusConfig['coming-soon'];
 
         <!-- Metadata Sidebar -->
         <div class="space-y-6">
-          <div class="p-5 rounded-2xl bg-dark-900/90 border border-white/[0.06] space-y-4">
-            <h3 class="text-xs font-mono font-medium text-zinc-300 uppercase tracking-wider">App Information</h3>
+          <div class="p-5 rounded-2xl bg-paper-100 border border-black/[0.06] space-y-4">
+            <h3 class="text-xs font-mono font-medium text-ink-800 uppercase tracking-wider">App Information</h3>
             
             <div class="space-y-2.5 text-xs">
-              <div class="flex justify-between py-1.5 border-b border-white/[0.04]">
-                <span class="text-zinc-500">Developer</span>
-                <span class="text-zinc-200 font-medium">{siteConfig.developerName}</span>
+              <div class="flex justify-between py-1.5 border-b border-black/[0.04]">
+                <span class="text-ink-500">Developer</span>
+                <span class="text-ink-950 font-medium">{siteConfig.developerName}</span>
               </div>
-              <div class="flex justify-between py-1.5 border-b border-white/[0.04]">
-                <span class="text-zinc-500">Target Platform</span>
-                <span class="text-zinc-200 font-medium">Android (Google Play)</span>
+              <div class="flex justify-between py-1.5 border-b border-black/[0.04]">
+                <span class="text-ink-500">Target Platform</span>
+                <span class="text-ink-950 font-medium">Android (Google Play)</span>
               </div>
               {app.version && (
-                <div class="flex justify-between py-1.5 border-b border-white/[0.04]">
-                  <span class="text-zinc-500">Status Version</span>
-                  <span class="text-zinc-200 font-medium font-mono">{app.version}</span>
+                <div class="flex justify-between py-1.5 border-b border-black/[0.04]">
+                  <span class="text-ink-500">Status Version</span>
+                  <span class="text-ink-950 font-medium font-mono">{app.version}</span>
                 </div>
               )}
               <div class="flex justify-between py-1.5">
-                <span class="text-zinc-500">Privacy Policy</span>
-                <a href={formatUrl(app.privacyPolicyUrl)} class="text-champagne-300 hover:text-white hover:underline">
+                <span class="text-ink-500">Privacy Policy</span>
+                <a href={formatUrl(app.privacyPolicyUrl)} class="text-gold-600 hover:text-gold-700 hover:underline font-medium">
                   View App Policy
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-xs text-zinc-400 space-y-2 font-normal">
-            <div class="font-semibold text-zinc-200">Data & Security</div>
+          <div class="p-5 rounded-2xl bg-white border border-black/[0.06] shadow-xs text-xs text-ink-600 space-y-2 font-normal">
+            <div class="font-semibold text-ink-950">Data & Security</div>
             <p>
               This app is engineered to adhere strictly to the Flipedy Labs privacy principles, requesting only the permissions necessary for core utility.
             </p>

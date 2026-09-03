@@ -27,7 +27,7 @@ const {
 
 const finalHref = href ? formatUrl(href) : undefined;
 
-const baseStyles = "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-950 select-none group cursor-pointer";
+const baseStyles = "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-paper-100 select-none group cursor-pointer";
 
 const sizeStyles = {
   sm: "px-3.5 py-1.5 text-xs gap-1.5",
@@ -36,10 +36,10 @@ const sizeStyles = {
 };
 
 const variantStyles = {
-  primary: "bg-white text-dark-950 font-semibold hover:bg-zinc-200 active:scale-[0.98] shadow-sm border border-white",
-  secondary: "bg-white/[0.05] text-zinc-200 hover:text-white hover:bg-white/[0.09] border border-white/[0.1] hover:border-white/[0.2] active:scale-[0.98]",
-  outline: "bg-transparent text-zinc-300 hover:text-white border border-zinc-700 hover:border-zinc-500 hover:bg-white/[0.04]",
-  subtle: "bg-transparent text-zinc-400 hover:text-white hover:bg-white/[0.05]",
+  primary: "bg-ink-950 text-white font-semibold hover:bg-ink-800 active:scale-[0.98] shadow-sm border border-ink-950",
+  secondary: "bg-white text-ink-900 hover:bg-paper-200 hover:text-ink-950 border border-ink-950/10 hover:border-ink-950/25 active:scale-[0.98] shadow-subtle",
+  outline: "bg-transparent text-ink-800 hover:text-ink-950 border border-ink-950/20 hover:border-ink-950/40 hover:bg-black/[0.03]",
+  subtle: "bg-transparent text-ink-600 hover:text-ink-950 hover:bg-black/[0.04]",
 };
 
 const classes = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

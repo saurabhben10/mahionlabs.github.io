@@ -16,9 +16,9 @@ const dimensions = {
 ---
 
 <div class={`inline-flex items-center gap-3 select-none group ${className}`}>
-  <!-- Vector SVG Logo: Classy Architectural Geometric 'F' Motif -->
+  <!-- Vector SVG Logo: Classy Architectural Geometric 'F' Motif in Deep Ink & Gold -->
   <div class={`relative ${dimensions[size].icon} flex items-center justify-center`}>
-    <div class="absolute inset-0 bg-white/[0.03] rounded-xl group-hover:bg-champagne-400/[0.08] transition-colors duration-200"></div>
+    <div class="absolute inset-0 bg-ink-950/[0.04] rounded-xl group-hover:bg-gold-400/[0.12] transition-colors duration-200"></div>
     <svg 
       viewBox="0 0 40 40" 
       fill="none" 
@@ -27,10 +27,10 @@ const dimensions = {
       aria-hidden="true"
     >
       <defs>
-        <linearGradient id="flipedy-gold-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stop-color="#FFFFFF" />
-          <stop offset="0.6" stop-color="#E5C07B" />
-          <stop offset="1" stop-color="#D1C7BD" />
+        <linearGradient id="flipedy-ink-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#121316" />
+          <stop offset="0.7" stop-color="#282B33" />
+          <stop offset="1" stop-color="#B48B22" />
         </linearGradient>
       </defs>
       
@@ -41,32 +41,32 @@ const dimensions = {
         width="30" 
         height="30" 
         rx="8" 
-        stroke="rgba(255,255,255,0.1)" 
+        stroke="rgba(18, 19, 22, 0.15)" 
         stroke-width="1.25" 
       />
 
       <!-- Architectural 'F' Path with Flip Horizon -->
       <path 
         d="M14 27V13H26M14 20H23" 
-        stroke="url(#flipedy-gold-grad)" 
+        stroke="url(#flipedy-ink-grad)" 
         stroke-width="2.5" 
         stroke-linecap="round" 
         stroke-linejoin="round"
       />
 
-      <!-- Champagne Precision Accent Node -->
+      <!-- Gold Precision Accent Node -->
       <circle 
         cx="26" 
         cy="13" 
-        r="1.75" 
-        fill="#E5C07B" 
+        r="2" 
+        fill="#B48B22" 
       />
     </svg>
   </div>
 
   {showText && (
-    <span class={`tracking-tight text-white group-hover:text-champagne-100 transition-colors duration-200 ${dimensions[size].text}`}>
-      Flipedy <span class="font-normal text-zinc-400">Labs</span>
+    <span class={`tracking-tight text-ink-950 group-hover:text-gold-500 transition-colors duration-200 ${dimensions[size].text}`}>
+      Flipedy <span class="font-normal text-ink-600">Labs</span>
     </span>
   )}
 </div>
